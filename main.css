@@ -1,0 +1,70 @@
+#paragraph {
+    color:chartreuse;
+    font-size:30px;
+    text-decoration:underline;
+         }header {
+height: 150px; 
+width: 30%; 
+border: 2px solid white; 
+background-color: #39e600; 
+}
+
+#questionoftheday{
+height:460px;
+width:900px;
+border:5px double #39e600;
+color:#00ffcc;
+font-size: 30px;
+margin-left:80px;
+padding-left:150px;
+margin-bottom:100px;
+margin-top:100px;
+}
+   .violet{
+    color:blue;
+    font-size:40px;
+   }
+    .list {
+    	color:purple;
+    	font-size:30px;
+         }
+         h1 {
+         	color:chartreuse;
+         	font-size:50px;
+            font-family: "Times New Roman", Times, serif; 
+              }
+               
+         }
+         h2 {
+         	color:chartreuse;
+         	font-size:32px#00ffcc
+         }
+
+         h3{
+         color:chartreuse;
+         font-size:35px; 
+          }
+         #title {
+            color:red;
+            font-size:65px;
+         text-decoration:underline;
+         }
+         #joshbosh{
+            font-size:25px;
+            color:#00ffff;
+            margin-top:50px;
+         }
+
+            .hello{
+    color:#00ffff;
+}
+#text {
+       margin-bottom:60px;
+       color:#0000ff;
+       font-size: 150px 
+       }
+
+#page{
+    margin-top:800px;
+    margin-bottom:50px;
+}
