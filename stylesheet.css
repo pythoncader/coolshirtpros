@@ -51,5 +51,8 @@ margin-bottom:15px;
 }
 .tshirtdesigns{
 	color:violet;
-	font-size:40px ;
+	font-size:40px;
+}
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
+	color:#337ab7;
 }
