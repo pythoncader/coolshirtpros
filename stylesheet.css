@@ -16,6 +16,7 @@ margin-left:73px;
 #form {
 border:3px solid blue;
 height:700px;
+width:500px;
 float:right;
 margin:10px;
 }
@@ -55,4 +56,10 @@ margin-bottom:15px;
 }
 .nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
 	color:#337ab7;
+}
+a:hover{
+	color:#337ab7;
+}
+.nav-tabs{
+	border-bottom:none;
 }

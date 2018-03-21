@@ -4,7 +4,101 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 <link type="text/css"rel="stylesheet" href="stylesheet.css">
 <title> Cool Shirt Pros </title>
+<script>
+function validate(){
+var name = document.getElementById("name");
+var blank_field = false;
+if(name.value == ""){
+name.style.backgroundColor = "pink";
+blank_field = true;
+} else {name.style.backgroundColor = "lightgreen"
+}
+var title = document.getElementById("title")
+if(title.value == ""){
+title.style.backgroundColor = "pink";
+blank_field = true;
+} else {title.style.backgroundColor = "lightgreen"
+}
+var comment = document.getElementById("commentbox")
+if(comment.value == ""){
+comment.style.backgroundColor = "pink";
+blank_field = true;
+} else {comment.style.backgroundColor = "lightgreen"
+}
+//Drop Down Menu Validation
+var text_color = document.getElementById("text_color");
+var bg_color = document.getElementById("bg_color");
 
+if(text_color.value=="Choose a Color"){
+text_color.style.border = "2px solid red";
+blank_field = true;
+}else {
+text_color.style.border = "none";
+}
+if(bg_color.value=="Choose a Color"){
+bg_color.style.border = "2px solid red";
+blank_field = true;
+}else {
+bg_color.style.border = "none";
+}
+var icon=document.getElementsByName("icon");
+var radiobtns=document.getElementById("radiobtns");
+var blank_radio=true;
+
+for(var i=0; i < icon.length; i++){
+if(icon[i].checked == true){
+blank_radio = false;
+}
+}
+if(blank_radio == true){
+radiobtns.style.border = "2px solid red";
+blank_field = true;
+} else { 
+radiobtns.style.border = "none";
+blank_field = false;
+}
+var errormessage = document.getElementById("message")
+if(blank_field == true){
+message.innerHTML = "<h3 style='color:red;'>You missed a part!</h3>";
+} else {
+message.innerHTML = "";
+}
+add();
+}//end function validateform
+var array = [];
+function add(){
+	/*Variables*/
+	var name = document.getElementById("name");
+	var title= document.getElementById("title");
+	var commentbox= document.getElementById("commentbox");
+    var icon = document.getElementsByName("icon");
+    var icon_value;
+    
+
+for(var i=0; i<icon.length; i++){
+if(icon[i].checked == true){
+icon_value = icon[i].value; 
+	}
+}
+var storage = {name: name.value, title: title.value, commentbox: commentbox.value, icon: icon_value};
+array.push(storage);
+  show();
+}//end function add
+function show(){
+var display = document.getElementById("display");
+var post ="";
+for(var i=0; i < array.length; i++){
+ post += "<img src='"+array[i].icon+"'class='icon' />"; 
+	post += "<strong> "+array[i].name+ "</strong><br>";
+    post += "<strong> "+array[i].title+ "</strong><br>";
+    post += "<strong> "+array[i].commentbox+ "</strong><br>";
+
+}
+
+display.innerHTML = post;
+}//end function show
+
+</script>
 </head>
 
 <body>
@@ -20,11 +114,11 @@
 
 </div>
 </div><!-- end logo row -->
-</div><!-- end container div -->
 
+</div> <!-- end container div -->
 <div class="row"> 
 <div class="col-xs-11" id="menu">
-<ul  class="nav nav-tabs"> 
+<ul  class = "nav nav-tabs"> 
 <li class="active"><a href="index.html">Home</a>  </li>
 <li><a href="aboutme.html">About Me</a> </li>  
 <li><a href="NewT-shirts.html">T-shirts</a>  </li>
@@ -38,14 +132,15 @@
 
 <div class="col-xs-12 col-sm-11" id="comments">COMMENTS
 <div class="col-xs-12 col-sm-4" id="form"><header id="header"> Leave a comment </header>
-
+<div id="message"></div>
 <form class="form-inline"> 
 	<label>Name</label>
 	<input type="text" class="form-control" id="name" placeholder="Enter Name">
 
 
 <label> Text-color: </label>
-<select>
+<select id="text_color" class="form-control">
+    <option>Choose a Color</option>
     <option>green</option>
 	<option>purple</option>
 	<option>yellow</option>
@@ -58,10 +153,10 @@
 
 <input type="text" class="form-control" id="title" placeholder="Enter Comment Title">
 
-<label>Background Color: </label> 
+<label>Choose a Color</label> 
 
-<select class="form-control">
-
+<select id="bg_color" class="form-control">
+<option>Choose a Color</option>
 <option> Pink </option> 
 
 <option> Green </option> 
@@ -74,32 +169,32 @@
 
 </form>
 </form>
-<form class="form-inline">
+<form id="radiobtns" class="form-inline">
 
 <label class="control-label"> Icons: </label>
 
-<input type="radio" name="icon">
+<input type="radio" value="problem.png" name="icon">
 <img src="problem.png" class="icon" /> 
 
-<input type="radio" name="icon">
+<input value="smile_1.png" type="radio" name="icon">
 <img src="smile_1.png" class="icon" /> 
 
-<input type="radio" name="icon">
+<input value="piano.png" type="radio" name="icon">
 <img src="piano.png" class="icon" /> 
 
-<input type="radio" name="icon">
+<input value="t_shirt.png" type="radio" name="icon">
 <img src="t_shirt.png" class="icon" /> 
 
 </form>
  <label>Comments:</label>
  
- <textarea class="form-control" row=8 ></textarea>
-
+ <textarea placeholder="Comment" class="form-control" rows="8" id="commentbox"></textarea>
+ <input class="btn btn-default" type="button" value="Submit Comment" onclick="validate()">
 </div><!-- end form id div -->
+<div id="display"></div>
 </div>
-
 </div> <!-- end comment row -->
-</body>
 
-</html>
+</body
+></html>
 
