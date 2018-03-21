@@ -61,5 +61,6 @@ a:hover{
 	color:#337ab7;
 }
 .nav-tabs{
-	border-bottom:none;
+	border-bottom:4px solid #66ffcc;
+	width:575px;
 }
