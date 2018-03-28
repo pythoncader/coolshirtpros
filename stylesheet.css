@@ -64,3 +64,8 @@ a:hover{
 	border-bottom:4px solid #66ffcc;
 	width:575px;
 }
+#usercomment{
+	border:2px solid black;
+	width:400px;
+	padding-top:10px;
+}

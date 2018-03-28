@@ -4,6 +4,7 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 <link type="text/css"rel="stylesheet" href="stylesheet.css">
 <title> Cool Shirt Pros </title>
+<link rel="icon" sizes="192x192" href="sofarshirt.jpg"> 
 <script>
 function validate(){
 var name = document.getElementById("name");
@@ -73,31 +74,40 @@ function add(){
 	var commentbox= document.getElementById("commentbox");
     var icon = document.getElementsByName("icon");
     var icon_value;
-    
-
-for(var i=0; i<icon.length; i++){
-if(icon[i].checked == true){
-icon_value = icon[i].value; 
+    var text_color = document.getElementById("text_color"); 
+    var bg_color = document.getElementById("bg_color");
+    for(var i=0; i<icon.length; i++){      
+    if(icon[i].checked == true){
+    icon_value = icon[i].value; 
 	}
-}
-var storage = {name: name.value, title: title.value, commentbox: commentbox.value, icon: icon_value};
-array.push(storage);
-  show();
+  }
+    var storage = {name: name.value, title: title.value, commentbox: commentbox.value, icon: icon_value, text_color: text_color.value, bg_color: bg_color.value};
+    array.push(storage);
+    show();
 }//end function add
 function show(){
 var display = document.getElementById("display");
 var post ="";
 for(var i=0; i < array.length; i++){
- post += "<img src='"+array[i].icon+"'class='icon' />"; 
+    post+="<div id='usercomment' style='background-color:"+array[i].bg_color+";'>"; 
+	post += "<div style='background-color:"+array[i].bg_color+";'>"; 
+    post += "<input type='checkbox' onclick='gone("+i+");'/>";
+    post += "<span style='color:"+array[i].text_color+";'>"; 
+    post += "<img src='"+array[i].icon+"'class='icon' />"; 
 	post += "<strong> "+array[i].name+ "</strong><br>";
     post += "<strong> "+array[i].title+ "</strong><br>";
     post += "<strong> "+array[i].commentbox+ "</strong><br>";
-
+    post += "</span>";
+    post += "</div>";
 }
 
 display.innerHTML = post;
 }//end function show
 
+function gone(index){     
+array.splice(index,1);
+show();
+}
 </script>
 </head>
 
@@ -153,7 +163,7 @@ display.innerHTML = post;
 
 <input type="text" class="form-control" id="title" placeholder="Enter Comment Title">
 
-<label>Border Color</label> 
+<label>Background Color</label> 
 
 <select id="bg_color" class="form-control">
 <option>Choose a Color</option>
